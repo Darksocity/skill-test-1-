@@ -1,0 +1,117 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #98b0f1;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.clock {
+  text-align: center;
+  margin-bottom: 20px;
+  outline: 2px solid #060606;
+  padding: 10px;
+  background-color: #020000;
+}
+
+.clock-face {
+  font-size: 80px;
+  color: #5b90bf;
+}
+
+.alarm-form {
+  margin-bottom: 20px;
+}
+
+.alarm-form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.input-group .input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #5b90bf;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.input-group .input-box label {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.input-group .input-box input,
+.input-group .input-box select {
+  width: 80px;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button-container button {
+  display: block;
+  padding: 10px 20px;
+  background-color: #5b90bf;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+.button-container button:hover {
+  background-color: #4a7b9d;
+}
+
+.alarms-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alarms-list .alarm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.alarms-list .alarm .delete-btn {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
