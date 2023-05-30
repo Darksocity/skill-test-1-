@@ -7,16 +7,26 @@ function getTimeString() {
   const hours = now.getHours();
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
+  const amPm = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = formatTime(hours % 12 || 12);
 
-  const timeString = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+  const timeString = `${formattedHours}:${formatTime(minutes)}:${formatTime(seconds)} ${amPm}`;
   return timeString;
 }
 
+
 function updateClock() {
   const clockElement = document.getElementById('clock');
-  clockElement.textContent = getTimeString();
-}
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  const amPm = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = formatTime(hours % 12 || 12);
 
+  const timeString = `${formattedHours}:${formatTime(minutes)}:${formatTime(seconds)} ${amPm}`;
+  clockElement.textContent = timeString;
+}
 function startClock() {
   updateClock();
   setInterval(updateClock, 1000);
@@ -34,25 +44,42 @@ function setAlarm() {
   const amPm = amPmInput.value;
 
   const alarmTime = `${formatTime(hour)}:${formatTime(minute)}:${formatTime(second)} ${amPm}`;
-  const alarmItem = document.createElement('li');
-  alarmItem.textContent = alarmTime;
+
+  const alarmRectangle = document.createElement('div');
+  alarmRectangle.classList.add('alarm-rectangle');
+  const randomColor = getRandomColor();
+  alarmRectangle.style.backgroundColor = randomColor;
+
+  const alarmTimeElement = document.createElement('div');
+  alarmTimeElement.classList.add('alarm-time');
+  alarmTimeElement.textContent = alarmTime;
 
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
   deleteButton.classList.add('delete-btn');
   deleteButton.addEventListener('click', () => {
-    deleteAlarm(alarmItem);
+    deleteAlarm(alarmRectangle);
   });
 
-  alarmItem.appendChild(deleteButton);
+  alarmRectangle.appendChild(alarmTimeElement);
+  alarmRectangle.appendChild(deleteButton);
 
   const alarmList = document.getElementById('alarm-list');
-  alarmList.appendChild(alarmItem);
+  alarmList.appendChild(alarmRectangle);
 }
 
-function deleteAlarm(alarmItem) {
+function deleteAlarm(alarmRectangle) {
   const alarmList = document.getElementById('alarm-list');
-  alarmList.removeChild(alarmItem);
+  alarmList.removeChild(alarmRectangle);
+}
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
 
 function initialize() {
