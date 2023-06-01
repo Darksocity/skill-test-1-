@@ -1,0 +1,74 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#suggestions-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  display: none;
+  z-index: 1;
+}
+
+#suggestions-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#suggestions-container li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#suggestions-container li:hover {
+  background-color: #f1f1f1;
+}
+
+#results {
+  text-align: left;
+}
+
+.movie {
+  margin-bottom: 10px;
+}
+
+.movie img {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.movie-title {
+  font-weight: bold;
+}
+
+.movie-year {
+  color: #777;
+}
+
+.movie-plot {
+  margin-top: 5px;
+}
+
+.favorite-button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
